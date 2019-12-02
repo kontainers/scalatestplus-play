@@ -20,8 +20,8 @@ import org.openqa.selenium.chrome.{ ChromeDriverService, ChromeOptions }
 import org.openqa.selenium.firefox.{ FirefoxOptions, FirefoxProfile }
 import org.scalatest._
 import org.scalatest.concurrent.{ Eventually, IntegrationPatience }
-import org.scalatest.selenium.WebBrowser
 import org.scalatestplus.play.BrowserFactory.{ GrumpyDriver, UnavailableDriver, UninitializedDriver, UnneededDriver }
+import org.scalatestplus.selenium.WebBrowser
 
 /**
  * Trait that uses a [[http://doc.scalatest.org/3.0.1/index.html#org.scalatest.FlatSpec@sharedTests ''shared test'']] approach to enable

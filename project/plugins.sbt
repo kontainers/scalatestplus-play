@@ -10,3 +10,5 @@ addSbtPlugin("com.typesafe.play" % "play-docs-sbt-plugin" % sys.props.getOrElse(
 addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.0")
 
 addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.3.0")
+
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.11")

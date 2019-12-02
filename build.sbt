@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.typesafe.tools.mima.core.{ ProblemFilters, ReversedMissingMethodProblem }
+import com.typesafe.tools.mima.core.{ProblemFilters, ReversedMissingMethodProblem}
 import sbt.util._
 
 import scala.sys.process._
 import sbt.io.Path._
 import interplay.ScalaVersions._
+import sbt.addCompilerPlugin
 
 resolvers ++= DefaultOptions.resolvers(snapshot = true)
 resolvers += Resolver.sonatypeRepo("snapshots")
@@ -30,7 +31,7 @@ val HtmlUnitVersion = "2.34.0"
 val PhantomJsDriverVersion = "1.4.4"
 val MockitoVersion = "2.18.3"
 val CssParserVersion = "1.2.0"
-val ScalatestVersion = "3.0.8"
+val ScalatestVersion = "3.1.0"
 
 lazy val mimaSettings = Seq(
   mimaPreviousArtifacts := { 
@@ -47,7 +48,9 @@ lazy val commonSettings = mimaSettings ++ Seq(
   crossScalaVersions := Seq("2.11.12", scala212, scala213),
   fork in Test := true, // see https://github.com/sbt/sbt/issues/4609
   parallelExecution in Test := false,
-  testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oTK")
+  testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oTK"),
+  scalafixDependencies in ThisBuild += "org.scalatest" %% "autofix" % "3.1.0.0",
+  addCompilerPlugin(scalafixSemanticdb) // enable SemanticDB
 )
 
 lazy val `scalatestplus-play-root` = project
@@ -69,6 +72,7 @@ lazy val `scalatestplus-play` = project
     organization := "org.scalatestplus.play",
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % ScalatestVersion,
+      "org.scalatestplus" %% "scalatestplus-selenium" % "1.0.0-M2",
       "org.seleniumhq.selenium" % "selenium-java" % SeleniumVersion exclude(org = "com.codeborne", name = "phantomjsdriver"),
       "org.seleniumhq.selenium" % "htmlunit-driver" % HtmlUnitVersion,
       "net.sourceforge.htmlunit" % "htmlunit-cssparser" % CssParserVersion,
