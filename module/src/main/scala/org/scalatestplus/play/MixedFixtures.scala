@@ -230,7 +230,7 @@ import play.api.test._
  * }
  * </pre>
  */
-trait MixedFixtures extends TestSuiteMixin with fixture.UnitFixture { this: fixture.TestSuite =>
+trait MixedFixtures extends TestSuiteMixin with fixture.UnitFixture { this: FixtureTestSuite =>
 
   /**
    * `NoArg` subclass that provides an `Application` fixture.
