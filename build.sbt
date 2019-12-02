@@ -69,7 +69,7 @@ lazy val `scalatestplus-play` = project
   .enablePlugins(Playdoc, PlayLibrary, PlayReleaseBase)
   .configs(Docs)
   .settings(
-    organization := "org.scalatestplus.play",
+    organization := "io.kontainers",
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % ScalatestVersion,
       "org.scalatestplus" %% "scalatestplus-selenium" % "1.0.0-M2",
@@ -122,10 +122,10 @@ playBuildRepoName in ThisBuild := "scalatestplus-play"
 
 lazy val PomExtra = {
   <scm>
-    <url>https://github.com/playframework/scalatestplus-play</url>
-    <connection>scm:git:git@github.com:playframework/scalatestplus-play.git</connection>
+    <url>https://github.com/kontainers/scalatestplus-play</url>
+    <connection>scm:git:git@github.com:kontainers/scalatestplus-play.git</connection>
     <developerConnection>
-      scm:git:git@github.com:playframework/scalatestplus-play.git
+      scm:git:git@github.com:kontainers/scalatestplus-play.git
     </developerConnection>
   </scm>
     <developers>
