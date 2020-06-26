@@ -4,6 +4,12 @@
 
 This is a fork of https://github.com/playframework/scalatestplus-play that supports scalatest 3.1.
 
+Best to now use:
+
+```scala
+"org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % "test"
+```
+
 ## Installation
 
 To use it, please add the following dependency to your project's `build.sbt` or `project/Build.scala` file:
